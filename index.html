@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Monaco Editor on CDN</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs/loader.min.js"></script>
+    <script>
+      require.config({
+        paths: {
+          vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.39.0/min/vs',
+        },
+      });
+
+      const sourceCode = `console.log('Hello Monaco Editor!');
+
+let fruit = 'Banana';`;
+
+      require(['vs/editor/editor.main'], () => {
+        monaco.editor.create(document.getElementById('editor'), {
+          value: sourceCode,
+          language: 'javascript',
+          automaticLayout: true,
+          // lineNumbers: 'off',
+          // minimap: { enabled: false },
+          padding: { top: 5, right: 5, bottom: 5, left: 5 },
+          overviewRulerLanes: 0,
+          overviewRulerBorder: false,
+          theme: 'vs-dark',
+        });
+      });
+    </script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="editor" style="width: 100%; height: 100vh"></div>
+  </body>
+</html>
