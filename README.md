@@ -2,3 +2,7 @@
 # vanilla-monaco-editor-cdn
 
 I think this repository is self explanatory.
+
+## Demo
+
+https://vanilla-monaco-editor-cdn.vercel.app
